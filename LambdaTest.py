@@ -45,9 +45,11 @@ class PentiumDevTool(PentiumLocalToolClass):
     # ========== Developer MUST implement process function for each tool ==========
     def process(self):
         if self.isValid:
+            # connect to neo4jDB
             driver = GraphDatabase.driver("bolt://34.215.102.35:7687", auth=("neo4j", "neo4j"))
             session = driver.session()
             session.run("CREATE (n:Pentium {Name: 'computer', Status: 'O'})")
+
             message =  "Hello world! " + self.toolParams["input"]
             # Save processing results to yourTool with Id
             self.toolResults[self.toolId]["statusCode"] = 200
