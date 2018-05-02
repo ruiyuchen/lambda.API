@@ -1,0 +1,32 @@
+# default
+.DS_Store
+
+# serverless
+.serverless
+testdata/
+
+# python
+__pycache__/
+*.pyc
+boto3/
+botocore/
+lib/
+bin/
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# testdata
+local.py
+local2.py
+git.sh
+response.json
+full.py
+
+# vscode
+.vscode
+
+# jenkins
+r_*

@@ -1,0 +1,29 @@
+service: LambdaTest
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: true
+
+package:
+   exclude:
+     - node_modules/**
+     - .gitignore
+     - README.md
+     - requirements.txt
+     - build.sh
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: us-west-2
+  role: arn:aws:iam::985392407453:role/service-role/lambda
+  timeout: 15 # optional, in seconds, default is 6
+  memorySize: 256
+
+functions:
+  LambdaTest:
+    handler: LambdaTest.lambdaHandler
+    events:
+      - sns: LambdaTest-${self:provider.stage}-LambdaTest
