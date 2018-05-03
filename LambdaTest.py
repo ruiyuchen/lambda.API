@@ -45,7 +45,7 @@ class PentiumDevTool(PentiumLocalToolClass):
     # ========== Developer MUST implement process function for each tool ==========
     def process(self):
         if self.isValid:
-            # connect to neo4j DB!
+            # connect to neo4j DB, jenkins job test
             driver = GraphDatabase.driver("bolt://34.215.102.35:7687", auth=("neo4j", "neo4j"))
             session = driver.session()
             session.run("CREATE (n:Pentium {Name: 'computer', Status: 'O'})")
